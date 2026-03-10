@@ -1,0 +1,28 @@
+class Solution {
+    public static ArrayList<ArrayList<Integer>> getPairs(int[] arr) {
+        Arrays.sort(arr);
+        ArrayList<ArrayList<Integer>> ans=new ArrayList<>();
+        int l=0;
+        int r=arr.length-1;
+        while(l<r){
+            int sum=arr[l]+arr[r];
+            if(sum==0){
+            ArrayList<Integer> temp=new ArrayList<>();
+            temp.add(arr[l]);
+            temp.add(arr[r]);
+            ans.add(temp);
+            int m=arr[l];
+            int n=arr[r];
+            while(l<r && arr[l]==m)
+               l++;
+            while(l<r && arr[r]==n)
+               r--;
+            }  
+            else if(sum<0)
+              l++;
+            else
+              r--;
+            }   
+        return ans;
+    }
+}
